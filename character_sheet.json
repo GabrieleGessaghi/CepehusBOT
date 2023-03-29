@@ -1,0 +1,31 @@
+{
+    "name": "",
+    "species": "",
+    "gender": "",
+    "age": "",
+    "origin": "",
+    "description": "",
+    "traits": "",
+    "characteristics": {
+        "FOR": {"value": "", "modiier": ""},
+        "DES": {"value": "", "modiier": ""},
+        "RES": {"value": "", "modiier": ""},
+        "PSI": {"value": "", "modiier": ""},
+        "INT": {"value": "", "modiier": ""},
+        "EDU": {"value": "", "modiier": ""},
+        "SOC": {"value": "", "modiier": ""},
+        "PPU": ""
+    },
+    "injuries": {
+        "FOR": "",
+        "DES": "",
+        "RES": "",
+        "armor": "",
+        "VA": "" 
+        },
+    "skills" : [],
+    "equipment": [],
+    "goods": [],
+    "resources": [],
+    "credits": []
+}
