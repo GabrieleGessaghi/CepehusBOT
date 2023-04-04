@@ -1,19 +1,19 @@
 {
     "name": "",
-    "species": "",
+    "race": "",
     "gender": "",
     "age": "",
     "origin": "",
     "description": "",
     "traits": "",
     "characteristics": {
-        "FOR": {"value": "", "modiier": ""},
-        "DES": {"value": "", "modiier": ""},
-        "RES": {"value": "", "modiier": ""},
-        "PSI": {"value": "", "modiier": ""},
-        "INT": {"value": "", "modiier": ""},
-        "EDU": {"value": "", "modiier": ""},
-        "SOC": {"value": "", "modiier": ""},
+        "FOR": {"value": "", "modifier": ""},
+        "DES": {"value": "", "modifier": ""},
+        "RES": {"value": "", "modifier": ""},
+        "PSI": {"value": "", "modifier": ""},
+        "INT": {"value": "", "modifier": ""},
+        "EDU": {"value": "", "modifier": ""},
+        "SOC": {"value": "", "modifier": ""},
         "PPU": ""
     },
     "injuries": {
@@ -23,7 +23,7 @@
         "armor": "",
         "VA": "" 
         },
-    "skills" : [],
+    "abilities" : [],
     "equipment": [],
     "goods": [],
     "resources": [],
