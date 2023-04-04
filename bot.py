@@ -4,6 +4,10 @@ import dyce_roll as dyce
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup, ReplyKeyboardRemove, Update
 from telegram.ext import Updater, CallbackContext, CommandHandler, MessageHandler, ConversationHandler, Filters
 
+TOKEN = None
+with open("token.txt") as f:
+    TOKEN = f.read().strip()
+
 # character creation stages
 GENDER, AGE, ORIGIN, RACE, TRAITS, CHARACTERISTICS, ABILITIES1, ABILITIES2, FIRST_CAREER = range(9)
 
@@ -209,7 +213,7 @@ def select_first_career (update: Update, context: CallbackContext):
     update.message.reply_text('eskereee')
 
 if __name__ == '__main__':
-    application = Updater('6156862079:AAHuCvPIhKhwGYomI_W_krkklUhCcot8U_Q', use_context= True)
+    application = Updater(TOKEN, use_context= True)
     bot = application.dispatcher
     
     start_handler = CommandHandler('start', start)
