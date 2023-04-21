@@ -1,0 +1,89 @@
+{
+    "Agent": {
+        "qualify": { "SOC": 6},
+        "survive": { "INT": 6},
+        "grade": { "EDU": 7},
+        "promotion": {"EDU": 6},
+        "reenrollment": 6,
+        "grades": {
+            "0": {
+                "name": "Agent",
+                "abilities" : { "Street Law": 1}
+            },
+            "1": {
+                "name": "Special Agent",
+                "abilities" : {}
+            },
+            "2": {
+                "name": "Commisioned Special Agent",
+                "abilities" : {}
+            },
+            "3": {
+                "name": "Head of Unit",
+                "abilities" : {}
+            },
+            "4": {
+                "name": "Head of Section",
+                "abilities" : { "Administration": 1}
+            },
+            "5": {
+                "name": "Associate Director",
+                "abilities" : {}
+            },
+            "6": {
+                "name": "Director",
+                "abilities" : {}
+            }    
+        },
+        "goods": {
+            "1": "Lower Passage",
+            "2": "INT",
+            "3": "Weapon",
+            "4": "Middle Passage",
+            "5": "SOC",
+            "6": "Superior Passage",
+            "7": "Traveller Society"
+        },
+        "credits": {
+            "1": 1000,
+            "2": 5000,
+            "3": 10000,
+            "4": 10000,
+            "5": 20000,
+            "6": 50000,
+            "7": 50000
+        },
+        "personal": {
+            "1": "DEX",
+            "2": "RES",
+            "3": "INT",
+            "4": "EDU",
+            "5": "Atletics",
+            "6": "Merrymaking"
+        },
+        "service": {
+            "1": "Administration",
+            "2": "Computer",
+            "3": "Street Law",
+            "4": "Corruption",
+            "5": "Leadership",
+            "6": "Vehicles"
+        },
+        "specialistic": {
+            "1": "Fire Weapon",
+            "2": "Fight",
+            "3": "Corruption",
+            "4": "Leadership",
+            "5": "Scout",
+            "6": "Survival"
+        },
+        "advaced": {
+            "1": "Lawyer",
+            "2": "Computer",
+            "3": "Connection",
+            "4": "Lenguages",
+            "5": "Medical Science",
+            "6": "Leadership"
+        }
+    }
+}

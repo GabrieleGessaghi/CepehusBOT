@@ -23,9 +23,18 @@
         "armor": "",
         "VA": "" 
         },
-    "abilities" : [],
+    "abilities" : {},
     "equipment": [],
     "goods": [],
     "resources": [],
-    "credits": []
+    "credits": [],
+    "careers": {
+        "1":"",
+        "2":"",
+        "3":"",
+        "4":"",
+        "5":"",
+        "6":"",
+        "7":""
+    }
 }
