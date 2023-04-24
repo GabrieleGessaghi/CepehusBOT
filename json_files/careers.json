@@ -54,7 +54,7 @@
             "7": 50000
         },
         "personal": {
-            "1": "DEX",
+            "1": "DES",
             "2": "RES",
             "3": "INT",
             "4": "EDU",
@@ -77,7 +77,7 @@
             "5": "Scout",
             "6": "Survival"
         },
-        "advaced": {
+        "advanced": {
             "1": "Lawyer",
             "2": "Computer",
             "3": "Connection",

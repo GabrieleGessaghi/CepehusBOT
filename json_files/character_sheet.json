@@ -7,13 +7,13 @@
     "description": "",
     "traits": "",
     "characteristics": {
-        "FOR": {"value": "", "modifier": ""},
-        "DES": {"value": "", "modifier": ""},
-        "RES": {"value": "", "modifier": ""},
-        "PSI": {"value": "", "modifier": ""},
-        "INT": {"value": "", "modifier": ""},
-        "EDU": {"value": "", "modifier": ""},
-        "SOC": {"value": "", "modifier": ""},
+        "FOR": {"value": 0, "modifier": 0},
+        "DES": {"value": 0, "modifier": 0},
+        "RES": {"value": 0, "modifier": 0},
+        "PSI": {"value": 0, "modifier": 0},
+        "INT": {"value": 0, "modifier": 0},
+        "EDU": {"value": 0, "modifier": 0},
+        "SOC": {"value": 0, "modifier": 0},
         "PPU": ""
     },
     "injuries": {
@@ -27,14 +27,14 @@
     "equipment": [],
     "goods": [],
     "resources": [],
-    "credits": [],
+    "credits": 0,
     "careers": {
-        "1":"",
-        "2":"",
-        "3":"",
-        "4":"",
-        "5":"",
-        "6":"",
-        "7":""
+        "1": {"name": "", "grade":0, "conscription_flag": ""},
+        "2": {"name": "", "grade":0, "conscription_flag": ""},
+        "3": {"name": "", "grade":0, "conscription_flag": ""},
+        "4": {"name": "", "grade":0, "conscription_flag": ""},
+        "5": {"name": "", "grade":0, "conscription_flag": ""},
+        "6": {"name": "", "grade":0, "conscription_flag": ""},
+        "7": {"name": "", "grade":0, "conscription_flag": ""}
     }
 }
