@@ -13,7 +13,7 @@ with open("token.txt") as f:
 GENDER, AGE, ORIGIN, RACE, TRAITS, CHARACTERISTICS, ABILITIES1, ABILITIES2,\
       FIRST_CAREER, START_CAREER, ADMISSION_FAILED, BASIC_TRAIN, SURVIVE, DEAD,\
         CAREER_GRADE_CHECK, GRADE_TRIAL, GET_GRADE, SELECT_ABILITY, PROMOTION, PROMOTION_TRIAL,\
-            PROMOTION_RESULT, SELECT_PROMOTION_ABILITY, NO_PROMOTION, DEAD= range(24)
+            PROMOTION_RESULT, SELECT_PROMOTION_ABILITY, NO_PROMOTION, CAREER_ABILITY, DEAD= range(25)
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -102,6 +102,9 @@ def main ():
     no_promotion_handler = CommandHandler('no_promotion', no_promotion)
     bot.add_handler(no_promotion_handler)
 
+    career_ability_handler = CommandHandler('career_ability', career_ability)
+    bot.add_handler(career_ability_handler)
+
     dead_handler = CommandHandler('dead', cancel)
     bot.add_handler(dead_handler)
 
@@ -131,6 +134,7 @@ def main ():
             PROMOTION_RESULT: [MessageHandler(Filters.text & ~Filters.command, promotion_result_check)],
             SELECT_PROMOTION_ABILITY: [MessageHandler(Filters.text & ~Filters.command, select_promotion_ability)],
             NO_PROMOTION: [MessageHandler(Filters.text & ~Filters.command, no_promotion)],
+            NO_PROMOTION: [MessageHandler(Filters.text & ~Filters.command, career_ability)],
             DEAD : [MessageHandler(Filters.text & ~Filters.command, cancel)]
         },
         fallbacks=[CommandHandler('cancel', cancel)]
@@ -683,6 +687,8 @@ def promotion_trial (update: Update, context: CallbackContext):
             )
     return PROMOTION_RESULT
 
+
+# check for promotion and give grade benefits
 def promotion_result_check (update: Update, context: CallbackContext):
     user_id = update.effective_user.name
     global tmp_user_data,selected_career,careers_number
@@ -723,6 +729,7 @@ def promotion_result_check (update: Update, context: CallbackContext):
         return NO_PROMOTION
     
 
+# roll for ability and increase lvl of rolled one
 def select_promotion_ability (update: Update, context: CallbackContext):
     user_id = update.effective_user.name
     selected_table = update.message.text.lower()
@@ -760,13 +767,19 @@ def select_promotion_ability (update: Update, context: CallbackContext):
                 on_time_keyboard= True
                 )
             )
-    return NO_PROMOTION
+    return CAREER_ABILITY
 
 
-
-
+# no promotion path 
 def no_promotion (update: Update, context: CallbackContext):
+    # TODO
     context.bot.send_message(chat_id=update.effective_chat.id, text='Nessuna promozione per te!')
+
+
+# start career ability path
+def career_ability (update: Update, context: CallbackContext):
+    # TODO
+    context.bot.send_message(chat_id=update.effective_chat.id, text='Percorso abilità di carriera!')
 
 # Unknown commands
 def unknown(update: Update, context: CallbackContext):
