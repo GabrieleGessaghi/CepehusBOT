@@ -93,7 +93,7 @@ def main ():
     promotion_trial_handler = CommandHandler('promotion_trial', promotion_trial)
     bot.add_handler(promotion_trial_handler)
 
-    promotion_result_handler = CommandHandler('promotion_trial', promotion_result_check)
+    promotion_result_handler = CommandHandler('promotion_result', promotion_result_check)
     bot.add_handler(promotion_result_handler)
 
     select_promotion_ability_handler = CommandHandler('select_promotion_ability', select_promotion_ability)
