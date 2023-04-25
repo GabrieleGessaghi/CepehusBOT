@@ -363,7 +363,7 @@ def select_first_career (update: Update, context: CallbackContext):
         # TODO rejection manage
         tmp_user_data[f"{user_id}"]["tmp_character"]["careers"]["1"]["conscription_flag"] = 1 
         update.message.reply_text('Sei stato rifiutato !')
-        return START_CAREER
+        return ADMISSION_FAILED
 
 #saving career abilities and ask for basic training 
 def start_career (update: Update, context: CallbackContext):
@@ -391,7 +391,7 @@ def start_career (update: Update, context: CallbackContext):
 def rejected (update: Update, context: CallbackContext): 
     # TODO rejection manage
     update.message.reply_text('Diventa un ramingo o presentati alla circoscrizione !')
-    return START_CAREER
+    return DEAD
 
 # showing basic training result and ask for survive trial
 def basic_training (update: Update, context: CallbackContext):
@@ -705,7 +705,7 @@ def promotion_result_check (update: Update, context: CallbackContext):
 
         reply_keyboard = [['PERSONAL'], ['SERVICE'], ['SPECIALISTIC'], ['ADVANCED']]
         update.message.reply_text(
-            'Hai superato la prova, aumenti di grado!\n Seleziona la tabella abilità, verrà tirato un dado (1d6) e la abilità corrispondente aumenta di livello:',
+            'Hai superato la prova, aumenti di grado! \nSeleziona la tabella abilità, verrà tirato un dado (1d6) e la abilità corrispondente aumenta di livello:',
             reply_markup= ReplyKeyboardMarkup(
                 reply_keyboard,
                 on_time_keyboard= True
