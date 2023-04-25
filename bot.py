@@ -12,7 +12,8 @@ with open("token.txt") as f:
 # character creation stages
 GENDER, AGE, ORIGIN, RACE, TRAITS, CHARACTERISTICS, ABILITIES1, ABILITIES2,\
       FIRST_CAREER, START_CAREER, ADMISSION_FAILED, BASIC_TRAIN, SURVIVE, DEAD,\
-        CAREER_GRADE_CHECK, GRADE_TRIAL, GET_GRADE, SELECT_ABILITY, INCREASE_ABILITY_LEVEL, PROMOTION= range(20)
+        CAREER_GRADE_CHECK, GRADE_TRIAL, GET_GRADE, SELECT_ABILITY, PROMOTION, PROMOTION_TRIAL,\
+            PROMOTION_RESULT, SELECT_PROMOTION_ABILITY, NO_PROMOTION, DEAD= range(24)
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -86,8 +87,23 @@ def main ():
     select_ability_handler = CommandHandler('select_ability', select_ability)
     bot.add_handler(select_ability_handler)
 
-    start_promotion_path_handler = CommandHandler('select_ability', start_promotion_path)
+    start_promotion_path_handler = CommandHandler('start_promotion_path', start_promotion_path)
     bot.add_handler(start_promotion_path_handler)
+
+    promotion_trial_handler = CommandHandler('promotion_trial', promotion_trial)
+    bot.add_handler(promotion_trial_handler)
+
+    promotion_result_handler = CommandHandler('promotion_trial', promotion_result_check)
+    bot.add_handler(promotion_result_handler)
+
+    select_promotion_ability_handler = CommandHandler('select_promotion_ability', select_promotion_ability)
+    bot.add_handler(select_promotion_ability_handler)
+
+    no_promotion_handler = CommandHandler('no_promotion', no_promotion)
+    bot.add_handler(no_promotion_handler)
+
+    dead_handler = CommandHandler('dead', cancel)
+    bot.add_handler(dead_handler)
 
 
     character_creation_handler = ConversationHandler(
@@ -110,7 +126,12 @@ def main ():
             GRADE_TRIAL: [MessageHandler(Filters.text & ~Filters.command, grade_trial)],
             GET_GRADE: [MessageHandler(Filters.text & ~Filters.command, get_grade)],
             SELECT_ABILITY: [MessageHandler(Filters.text & ~Filters.command, select_ability)],
-            PROMOTION: [MessageHandler(Filters.text & ~Filters.command, start_promotion_path)]
+            PROMOTION: [MessageHandler(Filters.text & ~Filters.command, start_promotion_path)],
+            PROMOTION_TRIAL: [MessageHandler(Filters.text & ~Filters.command, promotion_trial)],
+            PROMOTION_RESULT: [MessageHandler(Filters.text & ~Filters.command, promotion_result_check)],
+            SELECT_PROMOTION_ABILITY: [MessageHandler(Filters.text & ~Filters.command, select_promotion_ability)],
+            NO_PROMOTION: [MessageHandler(Filters.text & ~Filters.command, no_promotion)],
+            DEAD : [MessageHandler(Filters.text & ~Filters.command, cancel)]
         },
         fallbacks=[CommandHandler('cancel', cancel)]
     )
@@ -136,13 +157,20 @@ def cancel(update: Update, context: CallbackContext):
 
     user_id = update.effective_user.name
     # deleting tmp info
-    global tmp_user_data
+    global tmp_user_data,ability_counter,careers_number,selected_career,ability_list
     try:
         del(tmp_user_data[f"{user_id}"])
+        ability_counter = 3
+        selected_career = None
+        careers_number = 0
+        ability_list = ['Admin','Advocate','Animals','Carousing',
+                    'Comms','Computer','Electronics','Engineering',
+                    'Life Sciences','Linguistic','Mechanics','Medicine',
+                    'Physical Sciences','Social Sciences','Space Sciences']
     except KeyError:
         pass
     update.message.reply_text(
-        'Creazione personaggio interrotta!', reply_markup=ReplyKeyboardRemove()
+        'Creazione personaggio interrotta! \nPuoi creare un nuovo personaggio con i comando /create.', reply_markup=ReplyKeyboardRemove()
     )
 
     return ConversationHandler.END
@@ -203,7 +231,7 @@ def set_origin(update: Update, context: CallbackContext):
     global tmp_user_data
     tmp_user_data[f"{user_id}"]["tmp_character"]["age"] = character_age
 
-    update.message.reply_text("Da dove proviene il tuo persoanggio (pianeta di origine)?")
+    update.message.reply_text("Da dove proviene il tuo personaggio (pianeta di origine)?")
     return CHARACTERISTICS
 
 # calculate with dyce roll the characteristic
@@ -400,9 +428,14 @@ def survival_trial (update: Update, context: CallbackContext):
     roll = dyce.dice_roll(2,6)
 
     if roll == 2 :
-        # TODO dead
-        update.message.reply_text('Hai fallito la prova di sopravvivenza perchè hai tirato un 2 naturale! \nCrea un nuovo personaggio con il comando /create oppure selezioanando dal menu')
-        cancel(Update, CallbackContext)
+        update.message.reply_text(
+            'Hai fallito la prova di sopravvivenza perchè hai tirato un 2 naturale! \nPremi il bottone per eliminare il personaggio.',
+            reply_markup= ReplyKeyboardMarkup(
+                [['ELIMINA PERSONAGGIO']],
+                on_time_keyboard= True
+                )
+        )                              
+        return DEAD
 
     result = roll + tmp_user_data[f"{user_id}"]["tmp_character"]["characteristics"][f"{survival_check_attribute[0]}"]["value"]+tmp_user_data[f"{user_id}"]["tmp_character"]["characteristics"][f"{survival_check_attribute[0]}"]["modifier"]
 
@@ -428,9 +461,14 @@ def survival_trial (update: Update, context: CallbackContext):
             )
         return CAREER_GRADE_CHECK
     else:
-        # TODO dead
-        update.message.reply_text('Hai fallito la prova di sopravvivenza perchè non hai ottenuto il punteggio richiesto! \nCrea un nuovo personaggio con il comando /create oppure selezioanando dal menu')
-        cancel(Update, CallbackContext)
+        update.message.reply_text(
+            'Hai fallito la prova di sopravvivenza perchè non hai ottenuto il punteggio richiesto! \nPremi il bottone per eliminare il personaggio!',
+            reply_markup= ReplyKeyboardMarkup(
+                [['ELIMINA PERSONAGGIO']],
+                on_time_keyboard= True
+                )
+        )                              
+        return DEAD
 
 # grade assign path after surviving, giving credits and goods of grade 0      
 def career_grade_check (update: Update, context: CallbackContext):
@@ -472,6 +510,19 @@ def career_grade_check (update: Update, context: CallbackContext):
 # check if coscript and roll for grade assign
 def grade_trial (update: Update, context: CallbackContext):
     user_id = update.effective_user.name
+
+    user_choice = update.message.text
+
+    if user_choice == 'NO':
+        update.message.reply_text(
+            'Nessun grado per te!',
+            reply_markup= ReplyKeyboardMarkup(
+                [['PROSEGUI']],
+                on_time_keyboard= True
+                )
+            )
+        return PROMOTION
+    
     global tmp_user_data, careers_number
 
     if tmp_user_data[f"{user_id}"]["tmp_character"]["careers"][f"{careers_number}"]["conscription_flag"] == 1:
@@ -496,6 +547,7 @@ def grade_trial (update: Update, context: CallbackContext):
 # check grade roll and increase grade if success 
 def get_grade (update: Update, context: CallbackContext):
     user_id = update.effective_user.name
+    
     global tmp_user_data,careers_number
 
     grade_roll = dyce.dice_roll(2,6)
@@ -534,6 +586,7 @@ def get_grade (update: Update, context: CallbackContext):
                 on_time_keyboard= True
                 )
             )
+    print(tmp_user_data)
     return SELECT_ABILITY
 
 # ask to to roll dyce for ability selection from selected table
@@ -562,7 +615,10 @@ def select_ability (update: Update, context: CallbackContext):
     elif selected_ability == 'SOC':
         tmp_user_data[f"{user_id}"]["tmp_character"]["characteristics"][f"{selected_ability}"]["value"] += 1
     else :
-        tmp_user_data[f"{user_id}"]["tmp_character"]["abilities"][f"{selected_ability}"] += 1
+        if selected_ability in tmp_user_data[f"{user_id}"]["tmp_character"]["abilities"]:
+            tmp_user_data[f"{user_id}"]["tmp_character"]["abilities"][f"{selected_ability}"] += 1
+        else:
+            tmp_user_data[f"{user_id}"]["tmp_character"]["abilities"][f"{selected_ability}"] = 0
 
     update.message.reply_text(
             'Il livello di '+selected_ability+' è aumentato!',
@@ -571,15 +627,146 @@ def select_ability (update: Update, context: CallbackContext):
                 on_time_keyboard= True
                 )
             )
-    return INCREASE_ABILITY_LEVEL
+    return PROMOTION
 
-# TODO
+# check if grade >0 and ask for promotion
 def start_promotion_path (update: Update, context: CallbackContext):
     user_id = update.effective_user.name
+    global tmp_user_data,careers_number
+
+    if tmp_user_data[f"{user_id}"]["tmp_character"]["careers"][f"{careers_number}"]["grade"] == 0:
+        update.message.reply_text(
+            'Non ci sono promozioni disponibili, il tuo grado è 0!',
+            reply_markup= ReplyKeyboardMarkup(
+                [['PROSEGUI']],
+                on_time_keyboard= True
+                )
+            )
+        return NO_PROMOTION
+    
+    with open(f"json_files/careers.json", "r") as fp:
+        career_info = json.load(fp)[f"{selected_career}"]
+
+    if career_info["grades"] :
+        update.message.reply_text(
+            'Vuoi una promozione?',
+            reply_markup= ReplyKeyboardMarkup(
+                [['SI'],['NO']],
+                on_time_keyboard= True
+                )
+            )
+        return PROMOTION_TRIAL
+    else :
+        update.message.reply_text(
+            'La tua carriera non offre promozioni!',
+            reply_markup= ReplyKeyboardMarkup(
+                [['PROSEGUI']],
+                on_time_keyboard= True
+                )
+            )
+        return NO_PROMOTION
+
+# check user choice and ask for dyce roll
+def promotion_trial (update: Update, context: CallbackContext):
+    user_id = update.effective_user.name
+    user_choice = update.message.text
+
+    if user_choice == 'NO':
+        return NO_PROMOTION
+    
+    update.message.reply_text(
+            'Premi il bottone per fare la prova!',
+            reply_markup= ReplyKeyboardMarkup(
+                [['PROVA DI PROMOZIONE']],
+                on_time_keyboard= True
+                )
+            )
+    return PROMOTION_RESULT
+
+def promotion_result_check (update: Update, context: CallbackContext):
+    user_id = update.effective_user.name
+    global tmp_user_data,selected_career,careers_number
+
+    with open(f"json_files/careers.json", "r") as fp:
+        career_info = json.load(fp)[f"{selected_career}"]
+
+    career_promotion_param = list(career_info["promotion"].keys())
+    career_promotion_value = career_info["promotion"][career_promotion_param[0]]
+
+    result = dyce.dice_roll(2,6) + tmp_user_data[f"{user_id}"]["tmp_character"]["characteristics"][f"{career_promotion_param[0]}"]["value"]+tmp_user_data[f"{user_id}"]["tmp_character"]["characteristics"][f"{career_promotion_param[0]}"]["modifier"]
+
+    if result >= career_promotion_value:
+        tmp_user_data[f"{user_id}"]["tmp_character"]["careers"][f"{careers_number}"]["grade"] += 1
+        character_grade = tmp_user_data[f"{user_id}"]["tmp_character"]["careers"][f"{careers_number}"]["grade"]
+        tmp_user_data[f"{user_id}"]["tmp_character"]["careers"][f"{careers_number}"]["name"] = career_info["grades"][f"{character_grade}"]["name"]
+    
+        for key in career_info["grades"][f"{character_grade}"]["abilities"]:
+            tmp_user_data[f"{user_id}"]["tmp_character"]["abilities"][key] = career_info["grades"][f"{character_grade}"]["abilities"][key]
+
+        reply_keyboard = [['PERSONAL'], ['SERVICE'], ['SPECIALISTIC'], ['ADVANCED']]
+        update.message.reply_text(
+            'Hai superato la prova, aumenti di grado!\n Seleziona la tabella abilità, verrà tirato un dado (1d6) e la abilità corrispondente aumenta di livello:',
+            reply_markup= ReplyKeyboardMarkup(
+                reply_keyboard,
+                on_time_keyboard= True
+                )
+            )
+        return SELECT_PROMOTION_ABILITY
+    else :
+        update.message.reply_text(
+            'Mi dispiace non hai superato la prova, non ci sono promozioni per te!',
+            reply_markup= ReplyKeyboardMarkup(
+                [['PROSEGUI']],
+                on_time_keyboard= True
+                )
+            )
+        return NO_PROMOTION
+    
+
+def select_promotion_ability (update: Update, context: CallbackContext):
+    user_id = update.effective_user.name
+    selected_table = update.message.text.lower()
     global tmp_user_data
-    context.bot.send_message(chat_id=update.effective_chat.id, text='eskereeee')
+
+    dyce_roll = dyce.dice_roll (1,6)
+
+    with open(f"json_files/careers.json", "r") as fp:
+        career_table = json.load(fp)[f"{selected_career}"][f"{selected_table}"]
+
+    selected_ability = career_table[f"{dyce_roll}"]
+
+    if  selected_ability == 'FOR':
+        tmp_user_data[f"{user_id}"]["tmp_character"]["characteristics"][f"{selected_ability}"]["value"] += 1
+    elif selected_ability == 'DES':
+        tmp_user_data[f"{user_id}"]["tmp_character"]["characteristics"][f"{selected_ability}"]["value"] += 1
+    elif selected_ability == 'RES':
+        tmp_user_data[f"{user_id}"]["tmp_character"]["characteristics"][f"{selected_ability}"]["value"] += 1
+    elif selected_ability == 'INT':
+        tmp_user_data[f"{user_id}"]["tmp_character"]["characteristics"][f"{selected_ability}"]["value"] += 1
+    elif selected_ability == 'EDU':
+        tmp_user_data[f"{user_id}"]["tmp_character"]["characteristics"][f"{selected_ability}"]["value"] += 1
+    elif selected_ability == 'SOC':
+        tmp_user_data[f"{user_id}"]["tmp_character"]["characteristics"][f"{selected_ability}"]["value"] += 1
+    else :
+        if selected_ability in tmp_user_data[f"{user_id}"]["tmp_character"]["abilities"]:
+            tmp_user_data[f"{user_id}"]["tmp_character"]["abilities"][f"{selected_ability}"] += 1
+        else:
+            tmp_user_data[f"{user_id}"]["tmp_character"]["abilities"][f"{selected_ability}"] = 0
+
+    update.message.reply_text(
+            'Il livello di '+selected_ability+' è aumentato!',
+            reply_markup= ReplyKeyboardMarkup(
+                [['PROSEGUI']],
+                on_time_keyboard= True
+                )
+            )
+    return NO_PROMOTION
 
 
+
+
+def no_promotion (update: Update, context: CallbackContext):
+    context.bot.send_message(chat_id=update.effective_chat.id, text='Nessuna promozione per te!')
 
 # Unknown commands
 def unknown(update: Update, context: CallbackContext):
