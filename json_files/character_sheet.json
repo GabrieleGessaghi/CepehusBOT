@@ -2,7 +2,7 @@
     "name": "",
     "race": "",
     "gender": "",
-    "age": "",
+    "age": 0,
     "origin": "",
     "description": "",
     "traits": "",
@@ -24,17 +24,15 @@
         "VA": "" 
         },
     "abilities" : {},
-    "equipment": [],
     "goods": [],
-    "resources": [],
     "credits": 0,
     "careers": {
-        "1": {"name": "", "grade":0, "conscription_flag": ""},
-        "2": {"name": "", "grade":0, "conscription_flag": ""},
-        "3": {"name": "", "grade":0, "conscription_flag": ""},
-        "4": {"name": "", "grade":0, "conscription_flag": ""},
-        "5": {"name": "", "grade":0, "conscription_flag": ""},
-        "6": {"name": "", "grade":0, "conscription_flag": ""},
-        "7": {"name": "", "grade":0, "conscription_flag": ""}
+        "1": {"name": "", "grade":0, "conscription_flag": "", "service_periods": 0},
+        "2": {"name": "", "grade":0, "conscription_flag": "", "service_periods": 0},
+        "3": {"name": "", "grade":0, "conscription_flag": "", "service_periods": 0},
+        "4": {"name": "", "grade":0, "conscription_flag": "", "service_periods": 0},
+        "5": {"name": "", "grade":0, "conscription_flag": "", "service_periods": 0},
+        "6": {"name": "", "grade":0, "conscription_flag": "", "service_periods": 0},
+        "7": {"name": "", "grade":0, "conscription_flag": "", "service_periods": 0}
     }
 }
