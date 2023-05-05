@@ -53,7 +53,13 @@ def main ():
     help_handler = CommandHandler('help', help_f)
     bot.add_handler(help_handler)
 
-    show_handler = CommandHandler('show',get_player_sheet)
+    show_handler = ConversationHandler(
+        entry_points=[CommandHandler('show', show)],
+        states={
+            0: [MessageHandler(Filters.text & ~Filters.command, get_player_sheet)],
+        },
+    fallbacks=[],
+    )
     bot.add_handler(show_handler)
 
     character_creation_handler = ConversationHandler(
@@ -1637,24 +1643,74 @@ def save (update: Update, context: CallbackContext):
 
     return ConversationHandler.END
 
+def show (update: Update, context: CallbackContext):
+    user_id = update.effective_user.name
+    keyboard = []
+    if os.path.isfile(f"json_files/users/{user_id}.json"):
+        with open(f"json_files/users/{user_id}.json", "r") as fp:
+            user_characters = json.load(fp)
+    else:
+        user_characters = {}
+    try:
+        characters_list = [*user_characters]
+        for name in characters_list:
+            keyboard.append([f"{name}"])
+        update.message.reply_text("Lista dei personaggi di "+str(user_id),reply_markup=ReplyKeyboardMarkup(keyboard, one_time_keyboard=True))
+        return 0
+    except KeyError:
+        update.message.reply_text("Non hai ancora creato nessun personaggio!")
+        return ConversationHandler.END
+
+def format_player_sheet(user_data):
+    formatted_message = ""
+    formatted_message += f"Name: {user_data['name']}\n"
+    formatted_message += f"Race: {user_data['race']}\n"
+    formatted_message += f"Gender: {user_data['gender']}\n"
+    formatted_message += f"Age: {user_data['age']}\n"
+    formatted_message += f"Origin: {user_data['origin']}\n"
+    formatted_message += f"Description: {user_data['description']}\n"
+    formatted_message += f"Traits: {', '.join(user_data['traits'])}\n\n"
+    formatted_message += "Characteristics:\n"
+    for characteristic, values in user_data['characteristics'].items():
+        if characteristic == 'PPU':
+            formatted_message += f"{characteristic}: {values}\n\n"
+        else:
+            formatted_message += f"{characteristic}: {values['value']} ({'+' if values['modifier'] >= 0 else ''}{values['modifier']})\n"
+    formatted_message += "Injuries:\n"
+    formatted_message += f"FOR: {user_data['injuries']['FOR']}\n"
+    formatted_message += f"DES: {user_data['injuries']['DES']}\n"
+    formatted_message += f"RES: {user_data['injuries']['RES']}\n"
+    formatted_message += f"Armor: {user_data['injuries']['armor']}\n"
+    formatted_message += f"VA: {user_data['injuries']['VA']}\n\n"
+    formatted_message += "Abilities:\n"
+    for ability, level in user_data['abilities'].items():
+        formatted_message += f"{ability}: {level}\n"
+    formatted_message += f"Goods: {', '.join(user_data['goods'])}\n"
+    formatted_message += f"Credits: {user_data['credits']}\n\n"
+    formatted_message += "Careers:\n"
+    for i in range(1, 8):
+        career_data = user_data['careers'][str(i)]
+        formatted_message += f"Career {i}: {career_data['name']}\n"
+        formatted_message += f"Grade: {career_data['grade']}\n"
+        formatted_message += f"Conscription Flag: {career_data['conscription_flag']}\n"
+        formatted_message += f"Service Periods: {career_data['service_periods']}\n\n"
+
+    return formatted_message
 
 def get_player_sheet(update: Update, context: CallbackContext):
 
-    pattern = ".+"
-    if not re.fullmatch(pattern, "".join(context.args)):
-        update.message.reply_text("Correct usage:\n\"/show <character name>\"")
-        return
+    charcter_name = update.message.text
 
     user_id = update.effective_user.name
-    pc_name = " ".join(context.args)
-    pc_name_key = "_".join(context.args).lower()
 
     with open(f"json_files/users/{user_id}.json", "r") as fp:
         try:
-            user_data = json.load(fp)[f"{pc_name_key}"]
-            update.message.reply_text(f"{json.dumps(user_data, indent=4)}")
+            user_data = json.load(fp)[f"{charcter_name}"]
+            update.message.reply_text(format_player_sheet(user_data))
+            return ConversationHandler.END
         except KeyError:
-            update.message.reply_text(f"You have no character named {pc_name}!")
+            update.message.reply_text(f"You have no character named {charcter_name}!")
+            return ConversationHandler.END
 
 
 # Unknown commands
