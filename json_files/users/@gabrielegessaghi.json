@@ -1,0 +1,343 @@
+{
+    "lello": {
+        "name": "Lello",
+        "race": "",
+        "gender": "Uomo",
+        "age": 30,
+        "origin": "Terra",
+        "description": "",
+        "traits": [
+            "Armored",
+            "Bad First Impression",
+            "Caste",
+            "Cold-blooded",
+            "Fast Speed",
+            "Great Leaper",
+            "Hive Mentality"
+        ],
+        "characteristics": {
+            "FOR": {
+                "value": 6,
+                "modifier": 0
+            },
+            "DES": {
+                "value": 10,
+                "modifier": 1
+            },
+            "RES": {
+                "value": 6,
+                "modifier": 0
+            },
+            "PSI": {
+                "value": 0,
+                "modifier": 0
+            },
+            "INT": {
+                "value": 7,
+                "modifier": 0
+            },
+            "EDU": {
+                "value": 11,
+                "modifier": 1
+            },
+            "SOC": {
+                "value": 6,
+                "modifier": 0
+            },
+            "PPU": ""
+        },
+        "injuries": {
+            "FOR": "",
+            "DES": "",
+            "RES": "",
+            "armor": "",
+            "VA": ""
+        },
+        "abilities": {
+            "Admin": 0,
+            "Comms": 0,
+            "Electronics": 0,
+            "Street Law": 0,
+            "Mechanics": 0,
+            "Fire Weapon": 0,
+            "Melee": 0,
+            "Scout": 0,
+            "Vehicles": 0,
+            "Engeneering": 0
+        },
+        "goods": [
+            "Lower Passage"
+        ],
+        "credits": 2000,
+        "equipment": [
+            "Palmtop Computer",
+            "Long Range Comunicator",
+            "Reflec"
+        ],
+        "careers": {
+            "1": {
+                "name": "Drifter",
+                "grade": 0,
+                "conscription_flag": 0,
+                "service_periods": 1
+            },
+            "2": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            },
+            "3": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            },
+            "4": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            },
+            "5": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            },
+            "6": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            },
+            "7": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            }
+        }
+    },
+    "gabriele": {
+        "name": "Gabriele",
+        "race": "Human",
+        "gender": "Uomo",
+        "age": 30,
+        "origin": "Terra",
+        "description": "",
+        "traits": [],
+        "characteristics": {
+            "FOR": {
+                "value": 6,
+                "modifier": 0
+            },
+            "DES": {
+                "value": 9,
+                "modifier": 1
+            },
+            "RES": {
+                "value": 8,
+                "modifier": 0
+            },
+            "PSI": {
+                "value": 0,
+                "modifier": 0
+            },
+            "INT": {
+                "value": 7,
+                "modifier": 0
+            },
+            "EDU": {
+                "value": 9,
+                "modifier": 1
+            },
+            "SOC": {
+                "value": 5,
+                "modifier": -1
+            },
+            "PPU": ""
+        },
+        "injuries": {
+            "FOR": "",
+            "DES": "",
+            "RES": "",
+            "armor": "",
+            "VA": ""
+        },
+        "abilities": {
+            "Advocate": 0,
+            "Comms": 0,
+            "Electronics": 1,
+            "Street Law": 0,
+            "Mechanics": 0,
+            "Fire Weapon": 0,
+            "Melee": 0,
+            "Scout": 0,
+            "Vehicles": 0
+        },
+        "goods": [
+            "Lower Passage"
+        ],
+        "credits": 0,
+        "equipment": [],
+        "careers": {
+            "1": {
+                "name": "Drifter",
+                "grade": 0,
+                "conscription_flag": 0,
+                "service_periods": 1
+            },
+            "2": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            },
+            "3": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            },
+            "4": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            },
+            "5": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            },
+            "6": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            },
+            "7": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            }
+        }
+    },
+    "alex": {
+        "name": "Alex",
+        "race": "Insectans",
+        "gender": "Uomo",
+        "age": 30,
+        "origin": "Terra",
+        "description": "",
+        "traits": [
+            "Armored",
+            "Bad First Impression",
+            "Caste",
+            "Cold-blooded",
+            "Fast Speed",
+            "Great Leaper",
+            "Hive Mentality"
+        ],
+        "characteristics": {
+            "FOR": {
+                "value": 9,
+                "modifier": 1
+            },
+            "DES": {
+                "value": 8,
+                "modifier": 0
+            },
+            "RES": {
+                "value": 6,
+                "modifier": 0
+            },
+            "PSI": {
+                "value": 0,
+                "modifier": 0
+            },
+            "INT": {
+                "value": 11,
+                "modifier": 1
+            },
+            "EDU": {
+                "value": 5,
+                "modifier": -1
+            },
+            "SOC": {
+                "value": 6,
+                "modifier": 0
+            },
+            "PPU": ""
+        },
+        "injuries": {
+            "FOR": "",
+            "DES": "",
+            "RES": "",
+            "armor": "Reflec",
+            "VA": 12
+        },
+        "abilities": {
+            "Animals": 0,
+            "Computer": 1,
+            "Advocate": 0,
+            "Athletics": 2,
+            "Administration": 0,
+            "Marrymaking": 0,
+            "Gambling": 0,
+            "Vehicles": 0
+        },
+        "goods": [
+            "Lower Passage"
+        ],
+        "credits": 500,
+        "equipment": [],
+        "careers": {
+            "1": {
+                "name": "Athlete",
+                "grade": 0,
+                "conscription_flag": 0,
+                "service_periods": 1
+            },
+            "2": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            },
+            "3": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            },
+            "4": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            },
+            "5": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            },
+            "6": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            },
+            "7": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            }
+        }
+    }
+}

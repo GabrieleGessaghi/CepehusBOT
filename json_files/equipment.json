@@ -1,0 +1,173 @@
+{
+    "armors" : {
+        "Ablat" : {"price" : 75, "VA" : 7},
+        "Combat Armor" : {"price" : 20000, "VA" : 11},
+        "Vest" : {"price" : 50, "VA" : 1},
+        "Reflec" : {"price" : 1500, "VA" : 12},
+        "Net" : {"price" : 150, "VA" : 5},
+        "Battlekeeping" : {"price" : 200000, "VA" : 18},
+        "Fabric" : {"price" : 250, "VA" : 9},
+        "HEV Suit" : {"price" : 18000, "VA" : 8},
+        "Space Suit" : {"price" : 9000, "VA" : 6}
+    },
+    "comunicators" : {
+        "Long Range Comunicator" : 500,
+        "Mid Range Comunicator" : 200,
+        "Short Range Comunicator" : 100,
+        "Portble Comunicator" : 250 
+    },
+    "computers" : {
+        "Model 0" : 50,
+        "Model 1" : 100,
+        "Model 1 v2" : 250,
+        "Model 2" : 350,
+        "Model 2 v2" : 500,
+        "Model 3" : 1000,
+        "Model 4" : 1500,
+        "Model 5" : 5000
+    },
+    "drugs" : {
+        "Metabolic Accelerator" : 500,
+        "Anagatici" : 2000,
+        "Accelerating Drugs" : 200,
+        "Antirad Drugs" : 1000,
+        "Combat Drugs" : 1000,
+        "Medical Drugs" : 5,
+        "Stim Drugs" : 50,
+        "Panacee" : 200,
+        "Medical Slow Motion" : 500 
+    },
+    "explosives" : {
+        "Plastic" : 200,
+        "Pocket Nuclear" : 20000,
+        "TDX" : 1000  
+    },
+    "portable devices" : {
+        "Magnetic Compass" : 10,
+        "Wirst Watch" : 100,
+        "Geiger Counter" : 250,
+        "Metal Detector" : 300,
+        "Calculator" : 10,
+        "Inertial Locator" : 1200,
+        "Elettromagnetic Probe" : 1000,
+        "Palmtop Computer" : 1000,
+        "Holographic Projector" : 1000,
+        "Densitometer" : 20000,
+        "Bioscanner" : 350000,
+        "Neural Activity Scanner" : 35000 
+    },
+    "robots and drones" : {
+        "Autodoc" : 40000,
+        "Combat Drone" : 90000,
+        "Personal Drone" : 2000,
+        "Probe Drone" : 15000,
+        "Cargo Robot" : 75000,
+        "Repair Robot" : 10000,
+        "Servitor" : 120000
+    },
+    "assistive products" : {
+        "Torch" : 1,
+        "Lamp Oil" : 2,
+        "Oil Lamp" : 10,
+        "Binoculars" : 75,
+        "Electric Torch" : 10,
+        "Cold Light Lantern" : 20,
+        "Infrared Goggles" : 500,
+        "Light Intensifier Goggles" : 500
+    },
+    "shelters" : {
+        "Tarpaulin" : 10,
+        "Tent" : 200,
+        "Prefabbricated Cabin" : 10000,
+        "Basic Life Support Supplies" : 100,
+        "Pressur Tent" : 2000,
+        "Advanced Base" : 50000
+    },
+    "survival equipment" : {
+        "Cold Weather Clothing" : 200,
+        "Filter Mask" : 10,
+        "Swimming Equipment" : 200,
+        "Combination Mask" : 150,
+        "Oxygen Tanks" : 500,
+        "Respirator" : 100,
+        "Underwater Air Tanks" : 800,
+        "Artificial Gill" : 4000,
+        "Enviroment Suit" : 500,
+        "Rescue Bubble" : 600,
+        "Truster Pack" : 2000,
+        "Portable Generator" : 500000
+    },
+    "tools" : {
+        "Mechanical Toolkit" : 1000,
+        "Electronics Toolkit" : 1000,
+        "Lock Pick Set" : 10,
+        "Medical Kit" : 1000,
+        "Forensics Toolkit" : 1000,
+        "Engineering Toolkit" : 1000,
+        "Sceintific Toolkit" : 1000,
+        "Surveying Toolkit" : 1000
+    },
+    "vehicles" : {
+        "Steamship": 720000,
+        "Biplane": 46000,
+        "Ground Car": 6000,
+        "Motor Boat": 530000,
+        "Helicopter": 250000,
+        "Submersible": 1700000,
+        "Twin Jet Aircraft": 480000,
+        "Hovercraft": 880000,
+        "Air/Raft": 275000,
+        "Speeder": 890000,
+        "Destroyer": 4800000,
+        "Grav Floater": 500
+    },
+    "weapon" : {
+        "Melee Weapons": {
+            "Unarmed Strike": 0,
+            "Cudgel": 10,
+            "Dagger": 10,
+            "Spear": 10,
+            "Pike": 40,
+            "Sword": 150,
+            "Broadsword": 300,
+            "Halberd": 75,
+            "Bayonet": 10,
+            "Blade": 50,
+            "Cutlass": 100,
+            "Foil": 100
+        },
+        "Ranged Weapons" : {
+            "Bow": 60,
+            "Crossbow": 75,
+            "Revolver": 150,
+            "Auto Pistol": 200,
+            "Carbine": 200,
+            "Rifle": 200,
+            "Shotgun": 150,
+            "Submachinegun": 500,
+            "Auto Rifle": 1000,
+            "Assault Rifle": 300,
+            "Body Pistol": 500,
+            "Laser Carbine": 2500,
+            "Snub Pistol": 150,
+            "Accelerator Rifle": 900,
+            "Laser Rifle": 3500,
+            "Advanced Combat Rifle": 1000,
+            "Gauss Rifle": 1500,
+            "Laser Pistol": 1000
+        },
+        "Granades" : {
+            "Frag" : 180,
+            "Smoke" : 90,
+            "Aerosol" : 90,
+            "Stun" : 180
+        },
+        "Heavy Weapons" : {
+            "Granade Launcher" : 400,
+            "Rocket Launcher" : 2000,
+            "RAM Granade Launcher" : 800,
+            "PGMP (Plasma Gun)" : 2500,
+            "FGMP (Fusion Gun)" : 65000
+        }
+    }
+}

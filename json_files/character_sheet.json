@@ -5,7 +5,7 @@
     "age": 0,
     "origin": "",
     "description": "",
-    "traits": "",
+    "traits": [],
     "characteristics": {
         "FOR": {"value": 0, "modifier": 0},
         "DES": {"value": 0, "modifier": 0},
@@ -26,6 +26,7 @@
     "abilities" : {},
     "goods": [],
     "credits": 0,
+    "equipment" : [],
     "careers": {
         "1": {"name": "", "grade":0, "conscription_flag": "", "service_periods": 0},
         "2": {"name": "", "grade":0, "conscription_flag": "", "service_periods": 0},

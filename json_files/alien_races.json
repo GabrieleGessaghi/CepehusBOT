@@ -1,7 +1,35 @@
 {
-    "Avians": {},
-    "Espers": {},
-    "Insectans": {},
-    "Merfolk": {},
-    "Reptilians": {}
+    "Avians": {
+        "Flyer": true,
+        "Low Gravity Adaptation": true,
+        "Natural Pilot": true,
+        "Slow Speed": true,
+        "Small": true
+    },
+    "Espers": {
+        "Psionic": true
+    },
+    "Insectans": {
+        "Armored": true,
+        "Bad First Impression": true,
+        "Caste": true,
+        "Cold-blooded": true,
+        "Fast Speed": true,
+        "Great Leaper": true,
+        "Hive Mentality": true
+    },
+    "Merfolk": {
+        "Amphibious": true,
+        "Aquatic": true,
+        "Natural Swimmer": true,
+        "Water Dependent": true
+    },
+    "Reptilians": {
+        "Anti-Psionic": true,
+        "Fast Speed": true,
+        "Heat Endurance": true,
+        "Low-Light Vision": true,
+        "Natural Weapon (teeth)": true,
+        "Low Gravity Adaptation": true
+    }
 }

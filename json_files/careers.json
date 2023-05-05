@@ -1,4 +1,66 @@
 {
+    "Athlete": {
+        "qualify": { "RES": 8},
+        "survive": { "DES": 5},
+        "grade": {},
+        "promotion": {},
+        "reenrollment": 6,
+        "grades": {
+            "0": {
+                "name": "Athlete",
+                "abilities" : { "Athletics": 1}
+            }    
+        },
+        "goods": {
+            "1": "Lower Passage",
+            "2": "INT",
+            "3": "Weapon",
+            "4": "Superior Passage",
+            "5": "Traveller Society",
+            "6": "Superior Passage"
+        },
+        "credits": {
+            "1": 2000,
+            "2": 10000,
+            "3": 20000,
+            "4": 20000,
+            "5": 50000,
+            "6": 100000,
+            "7": 100000
+        },
+        "personal": {
+            "1": "DES",
+            "2": "INT",
+            "3": "EDU",
+            "4": "SOC",
+            "5": "Marrymaking",
+            "6": "Melee"
+        },
+        "service": {
+            "1": "Athletics",
+            "2": "Administration",
+            "3": "Marrymaking",
+            "4": "Computer",
+            "5": "Gambling",
+            "6": "Vehicles"
+        },
+        "specialistic": {
+            "1": "G-Zero",
+            "2": "Athletics",
+            "3": "Athletics",
+            "4": "Commputer",
+            "5": "Leadership",
+            "6": "Gambling"
+        },
+        "advanced": {
+            "1": "Lawyer",
+            "2": "Computer",
+            "3": "Connection",
+            "4": "Languages",
+            "5": "Medical Science",
+            "6": "Science"
+        }
+    },
     "Agent": {
         "qualify": { "SOC": 6},
         "survive": { "INT": 6},
@@ -84,6 +146,155 @@
             "4": "Lenguages",
             "5": "Medical Science",
             "6": "Leadership"
+        }
+    },
+    "Drifter": {
+        "qualify": {"DES":5},
+        "survive": {"RES":5},
+        "grade": {},
+        "promotion": {},
+        "reenrollment": 5,
+        "grades": {
+            "0": {
+                "name" : "Drifter",
+                "abilities" : {}
+            }
+        },
+        "goods": {
+            "1": "Lower Passage",
+            "2": "INT",
+            "3": "Weapon",
+            "4": "Weapon",
+            "5": "Middle Passage",
+            "6": "Middle Passage"
+        },
+        "credits": {
+            "1": 0,
+            "2": 1000,
+            "3": 2000,
+            "4": 5000,
+            "5": 5000,
+            "6": 10000,
+            "7": 10000
+        },
+        "personal": {
+            "1": "FOR",
+            "2": "DES",
+            "3": "RES",
+            "4": "Melee",
+            "5": "Corruption",
+            "6": "Gambling"
+        },
+        "service": {
+            "1": "Street Law",
+            "2": "Mechanics",
+            "3": "Fire Weapon",
+            "4": "Melee",
+            "5": "Scout",
+            "6": "Vehicles"
+        },
+        "specialistic": {
+            "1": "Electronics",
+            "2": "Melee",
+            "3": "Corruption",
+            "4": "Street Law",
+            "5": "Gambling",
+            "6": "Scout"
+        },
+        "advanced": {
+            "1": "Computer",
+            "2": "Engeneering",
+            "3": "Handyman",
+            "4": "Medical Science",
+            "5": "Connection",
+            "6": "Tactics"
+        }
+    },
+    "Barbarian": {
+        "qualify": {},
+        "survive": {},
+        "grade": {},
+        "promotion": {},
+        "reenrollment": 0,
+        "grades": {
+            "0": {
+                "name": "",
+                "abilities" : {}
+            },
+            "1": {
+                "name": "",
+                "abilities" : {}
+            },
+            "2": {
+                "name": "",
+                "abilities" : {}
+            },
+            "3": {
+                "name": "",
+                "abilities" : {}
+            },
+            "4": {
+                "name": "",
+                "abilities" : {}
+            },
+            "5": {
+                "name": "",
+                "abilities" : {}
+            },
+            "6": {
+                "name": "",
+                "abilities" : {}
+            }    
+        },
+        "goods": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": "",
+            "7": ""
+        },
+        "credits": {
+            "1": 0,
+            "2": 0,
+            "3": 0,
+            "4": 0,
+            "5": 0,
+            "6": 0,
+            "7": 0
+        },
+        "personal": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": ""
+        },
+        "service": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": ""
+        },
+        "specialistic": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": ""
+        },
+        "advanced": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": ""
         }
     }
 }
