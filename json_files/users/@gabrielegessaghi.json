@@ -339,5 +339,119 @@
                 "service_periods": 0
             }
         }
+    },
+    "jhonny": {
+        "name": "Jhonny",
+        "race": "Merfolk",
+        "gender": "Uomo",
+        "age": 30,
+        "origin": "Terra",
+        "description": "",
+        "traits": [
+            "Amphibious",
+            "Aquatic",
+            "Natural Swimmer",
+            "Water Dependent"
+        ],
+        "characteristics": {
+            "FOR": {
+                "value": 8,
+                "modifier": 0
+            },
+            "DES": {
+                "value": 12,
+                "modifier": 2
+            },
+            "RES": {
+                "value": 6,
+                "modifier": 0
+            },
+            "PSI": {
+                "value": 0,
+                "modifier": 0
+            },
+            "INT": {
+                "value": 5,
+                "modifier": -1
+            },
+            "EDU": {
+                "value": 9,
+                "modifier": 1
+            },
+            "SOC": {
+                "value": 4,
+                "modifier": -1
+            },
+            "PPU": "8C6594"
+        },
+        "injuries": {
+            "FOR": "",
+            "DES": "",
+            "RES": "",
+            "armor": "Combat Armor",
+            "VA": 11
+        },
+        "abilities": {
+            "Admin": 0,
+            "Animals": 0,
+            "Comms": 0,
+            "Administration": 0,
+            "Computer": 0,
+            "Street Law": 1,
+            "Corruption": 1,
+            "Leadership": 0,
+            "Vehicles": 0
+        },
+        "goods": [
+            "Lower Passage"
+        ],
+        "credits": 0,
+        "equipment": [
+            "Elettromagnetic Probe"
+        ],
+        "careers": {
+            "1": {
+                "name": "Agent",
+                "grade": 0,
+                "conscription_flag": 0,
+                "service_periods": 1
+            },
+            "2": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            },
+            "3": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            },
+            "4": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            },
+            "5": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            },
+            "6": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            },
+            "7": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            }
+        }
     }
 }

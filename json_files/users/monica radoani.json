@@ -1,0 +1,116 @@
+{
+    "monica": {
+        "name": "Monica",
+        "race": "Avians",
+        "gender": "Female",
+        "age": 30,
+        "origin": "Terra",
+        "description": "",
+        "traits": [
+            "Flyer",
+            "Low Gravity Adaptation",
+            "Natural Pilot",
+            "Slow Speed",
+            "Small"
+        ],
+        "characteristics": {
+            "FOR": {
+                "value": 9,
+                "modifier": 1
+            },
+            "DES": {
+                "value": 7,
+                "modifier": 0
+            },
+            "RES": {
+                "value": 6,
+                "modifier": 0
+            },
+            "PSI": {
+                "value": 0,
+                "modifier": 0
+            },
+            "INT": {
+                "value": 7,
+                "modifier": 0
+            },
+            "EDU": {
+                "value": 12,
+                "modifier": 2
+            },
+            "SOC": {
+                "value": 9,
+                "modifier": 1
+            },
+            "PPU": "9767C9"
+        },
+        "injuries": {
+            "FOR": "",
+            "DES": "",
+            "RES": "",
+            "armor": "",
+            "VA": ""
+        },
+        "abilities": {
+            "Admin": 0,
+            "Advocate": 0,
+            "Electronics": 0,
+            "Street Law": 0,
+            "Mechanics": 0,
+            "Fire Weapon": 0,
+            "Melee": 0,
+            "Scout": 0,
+            "Vehicles": 0,
+            "Connection": 0
+        },
+        "goods": [
+            "Lower Passage"
+        ],
+        "credits": 0,
+        "equipment": [],
+        "careers": {
+            "1": {
+                "name": "Drifter",
+                "grade": 0,
+                "conscription_flag": 0,
+                "service_periods": 1
+            },
+            "2": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            },
+            "3": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            },
+            "4": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            },
+            "5": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            },
+            "6": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            },
+            "7": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            }
+        }
+    }
+}

@@ -1,0 +1,113 @@
+{
+    "geltrude": {
+        "name": "Geltrude",
+        "race": "Human",
+        "gender": "Donna",
+        "age": 12,
+        "origin": "Salerno",
+        "description": "",
+        "traits": [],
+        "characteristics": {
+            "FOR": {
+                "value": 9,
+                "modifier": 1
+            },
+            "DES": {
+                "value": 8,
+                "modifier": 0
+            },
+            "RES": {
+                "value": 8,
+                "modifier": 0
+            },
+            "PSI": {
+                "value": 0,
+                "modifier": 0
+            },
+            "INT": {
+                "value": 8,
+                "modifier": 0
+            },
+            "EDU": {
+                "value": 6,
+                "modifier": 0
+            },
+            "SOC": {
+                "value": 7,
+                "modifier": 0
+            },
+            "PPU": ""
+        },
+        "injuries": {
+            "FOR": "",
+            "DES": "",
+            "RES": "",
+            "armor": "",
+            "VA": ""
+        },
+        "abilities": {
+            "Animals": 0,
+            "Life Sciences": 0,
+            "Physical Sciences": 0,
+            "Administration": 0,
+            "Computer": 0,
+            "Street Law": 1,
+            "Corruption": 0,
+            "Leadership": 0,
+            "Vehicles": 0,
+            "Merrymaking": 0
+        },
+        "goods": [
+            "Lower Passage"
+        ],
+        "credits": 300,
+        "equipment": [
+            "Grav Floater",
+            "Tent"
+        ],
+        "careers": {
+            "1": {
+                "name": "Special Agent",
+                "grade": 1,
+                "conscription_flag": 0,
+                "service_periods": 1
+            },
+            "2": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            },
+            "3": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            },
+            "4": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            },
+            "5": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            },
+            "6": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            },
+            "7": {
+                "name": "",
+                "grade": 0,
+                "conscription_flag": "",
+                "service_periods": 0
+            }
+        }
+    }
+}

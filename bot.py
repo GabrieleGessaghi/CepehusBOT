@@ -122,7 +122,7 @@ def main ():
     
 #  /start
 def start(update: Update, context: CallbackContext):
-    context.bot.send_message(chat_id=update.effective_chat.id, text='Ciao! Sono un bot che ti aiuterà a creare un personaggio per Cepheus Engine RPG. Iniziamo!')
+    context.bot.send_message(chat_id=update.effective_chat.id, text='Ciao! Sono un bot che ti aiuterà a creare un personaggio per Cepheus Engine RPG.\n\nPER UN CORRETTO FUNZIONAMENTO DEL BOT SI PREGA DI UTILIZZARE LE TASTIERE VIRTUALI PROPOSTE!')
 
 # /help
 def help_f(update: Update, context: CallbackContext):
@@ -196,6 +196,10 @@ def set_age(update: Update, context: CallbackContext):
     character_gender = update.message.text
 
     global tmp_user_data
+    if character_gender == 'Uomo':
+        character_gender = 'Male'
+    else:
+        character_gender = 'Female'
     tmp_user_data[f"{user_id}"]["tmp_character"]["gender"] = character_gender
 
     update.message.reply_text("Quanti anni ha il tuo personaggio ?")
@@ -1616,12 +1620,12 @@ def save (update: Update, context: CallbackContext):
 
     global tmp_user_data
 
-    str_FOR = str(hex(tmp_user_data[f"{user_id}"]["tmp_character"]["characteristics"]["FOR"])[2:]).upper()
-    str_DES = str(hex(tmp_user_data[f"{user_id}"]["tmp_character"]["characteristics"]["DES"])[2:]).upper()
-    str_RES = str(hex(tmp_user_data[f"{user_id}"]["tmp_character"]["characteristics"]["RES"])[2:]).upper()
-    str_INT = str(hex(tmp_user_data[f"{user_id}"]["tmp_character"]["characteristics"]["INT"])[2:]).upper()
-    str_EDU = str(hex(tmp_user_data[f"{user_id}"]["tmp_character"]["characteristics"]["EDU"])[2:]).upper()
-    str_SOC = str(hex(tmp_user_data[f"{user_id}"]["tmp_character"]["characteristics"]["SOC"])[2:]).upper()
+    str_FOR = str(hex(tmp_user_data[f"{user_id}"]["tmp_character"]["characteristics"]["FOR"]["value"])[2:]).upper()
+    str_DES = str(hex(tmp_user_data[f"{user_id}"]["tmp_character"]["characteristics"]["DES"]["value"])[2:]).upper()
+    str_RES = str(hex(tmp_user_data[f"{user_id}"]["tmp_character"]["characteristics"]["RES"]["value"])[2:]).upper()
+    str_INT = str(hex(tmp_user_data[f"{user_id}"]["tmp_character"]["characteristics"]["INT"]["value"])[2:]).upper()
+    str_EDU = str(hex(tmp_user_data[f"{user_id}"]["tmp_character"]["characteristics"]["EDU"]["value"])[2:]).upper()
+    str_SOC = str(hex(tmp_user_data[f"{user_id}"]["tmp_character"]["characteristics"]["SOC"]["value"])[2:]).upper()
 
     tmp_user_data[f"{user_id}"]["tmp_character"]["characteristics"]["PPU"] = str_FOR+str_DES+str_RES+str_INT+str_EDU+str_SOC
     if os.path.isfile(f"json_files/users/{user_id}.json"):
@@ -1690,6 +1694,8 @@ def format_player_sheet(user_data):
     formatted_message += "Careers:\n"
     for i in range(1, 8):
         career_data = user_data['careers'][str(i)]
+        if career_data['name'] == '':
+            continue
         formatted_message += f"Career {i}: {career_data['name']}\n"
         formatted_message += f"Grade: {career_data['grade']}\n"
         formatted_message += f"Conscription Flag: {career_data['conscription_flag']}\n"
@@ -1711,8 +1717,7 @@ def get_player_sheet(update: Update, context: CallbackContext):
         except KeyError:
             update.message.reply_text(f"You have no character named {charcter_name}!")
             return ConversationHandler.END
-
-
+        
 # Unknown commands
 def unknown(update: Update, context: CallbackContext):
     context.bot.send_message(chat_id=update.effective_chat.id, text='Unknown command, try /help')
