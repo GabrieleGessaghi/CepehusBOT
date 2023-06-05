@@ -1,29 +1,23 @@
 {
-    "monica": {
-        "name": "Monica",
-        "race": "Avians",
-        "gender": "Female",
-        "age": 30,
-        "origin": "Terra",
+    "test": {
+        "name": "Test",
+        "race": "Human",
+        "gender": "Male",
+        "age": 38,
+        "origin": "Test 2",
         "description": "",
-        "traits": [
-            "Flyer",
-            "Low Gravity Adaptation",
-            "Natural Pilot",
-            "Slow Speed",
-            "Small"
-        ],
+        "traits": [],
         "characteristics": {
             "FOR": {
-                "value": 9,
-                "modifier": 1
+                "value": 5,
+                "modifier": -1
             },
             "DES": {
-                "value": 7,
+                "value": 6,
                 "modifier": 0
             },
             "RES": {
-                "value": 6,
+                "value": 7,
                 "modifier": 0
             },
             "PSI": {
@@ -31,18 +25,18 @@
                 "modifier": 0
             },
             "INT": {
-                "value": 7,
+                "value": 8,
                 "modifier": 0
             },
             "EDU": {
+                "value": 8,
+                "modifier": 0
+            },
+            "SOC": {
                 "value": 12,
                 "modifier": 2
             },
-            "SOC": {
-                "value": 9,
-                "modifier": 1
-            },
-            "PPU": "9767C9"
+            "PPU": "56788C"
         },
         "injuries": {
             "FOR": "",
@@ -52,26 +46,31 @@
             "VA": ""
         },
         "abilities": {
-            "Admin": 0,
-            "Advocate": 0,
-            "Electronics": 0,
-            "Street Law": 0,
-            "Mechanics": 0,
-            "Fire Weapon": 0,
-            "Melee": 0,
-            "Scout": 0,
+            "Computer": 1,
+            "Linguistic": 0,
+            "Space Sciences": 0,
+            "Administration": 0,
+            "Street Law": 1,
+            "Corruption": 1,
+            "Leadership": 0,
             "Vehicles": 0,
-            "Connection": 0
+            "Connection": 0,
+            "Survival": 0
         },
         "goods": [
             "Lower Passage"
         ],
-        "credits": 0,
-        "equipment": [],
+        "credits": 450,
+        "equipment": [
+            "Model 1",
+            "comunicators",
+            "Mid Range Comunicator",
+            "Geiger Counter"
+        ],
         "careers": {
             "1": {
-                "name": "Drifter",
-                "grade": 0,
+                "name": "Commisioned Special Agent",
+                "grade": 2,
                 "conscription_flag": 0,
                 "service_periods": 1
             },

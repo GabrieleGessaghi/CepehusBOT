@@ -148,7 +148,7 @@ def cancel(update: Update, context: CallbackContext):
     except KeyError:
         pass
     update.message.reply_text(
-        'Creazione personaggio interrotta! \nPuoi creare un nuovo personaggio con i comando /create.', reply_markup=ReplyKeyboardRemove()
+        'Creazione personaggio interrotta! \nPuoi creare un nuovo personaggio con il comando /create.', reply_markup=ReplyKeyboardRemove()
     )
 
     return ConversationHandler.END
@@ -915,7 +915,7 @@ def end_service_period (update: Update, context: CallbackContext):
         return AGING  
 
     update.message.reply_text(
-            'Sono trascorsi 4 annni, hai terminato il periodo di servizio!',
+            'Sono trascorsi 4 anni, hai terminato il periodo di servizio!',
             reply_markup= ReplyKeyboardMarkup(
                 [['PROSEGUI']],
                 on_time_keyboard= True
@@ -1158,7 +1158,7 @@ def retire_choice (update: Update, context: CallbackContext):
         return CHANGE_CHOICE
     
     update.message.reply_text(
-        'Hai scelto di ritirarti, verrai guidato ora hai passi conclusivi della creazione del tuo personaggio!',
+        'Hai scelto di ritirarti, verrai guidato ora nei passi conclusivi della creazione del tuo personaggio!',
         reply_markup= ReplyKeyboardMarkup(
             [['PROSEGUI']],
             one_time_keyboard= True
@@ -1330,7 +1330,7 @@ def end_benefit_path (update: Update, context: CallbackContext):
         return START_NEXT_CAREER
 
     update.message.reply_text(
-        'Hai scelto di ritirarti, verrai guidato ora hai passi conclusivi della creazione del tuo personaggio!',
+        'Hai scelto di ritirarti, verrai guidato ora nei passi conclusivi della creazione del tuo personaggio!',
         reply_markup= ReplyKeyboardMarkup(
             [['PROSEGUI']],
             one_time_keyboard= True
@@ -1355,7 +1355,7 @@ def start_next_career (update: Update, context: CallbackContext):
         reply_keyboard.append([career])
 
     update.message.reply_text(
-        'Seleziona la cariera che vuoi intraprendere, ricorda potresti essere rifiutato!',
+        'Seleziona la carriera che vuoi intraprendere, ricorda potresti essere rifiutato!',
         reply_markup= ReplyKeyboardMarkup(reply_keyboard,
                                           one_time_keyboard=True,
                                           input_field_placeholder='Seleziona carriera')
@@ -1642,7 +1642,7 @@ def save (update: Update, context: CallbackContext):
 
     tmp_user_data.pop(f"{user_id}")
     update.message.reply_text(
-        'Creazione personaggio completata! \nPuoi creare un nuovo personaggio con i comando /create oppure usare il comando /show per vedere i personaggi creati.', reply_markup=ReplyKeyboardRemove()
+        'Creazione personaggio completata! \nPuoi creare un nuovo personaggio con il comando /create oppure usa il comando /show per vedere i personaggi creati.', reply_markup=ReplyKeyboardRemove()
     )
 
     return ConversationHandler.END
@@ -1690,6 +1690,7 @@ def format_player_sheet(user_data):
     for ability, level in user_data['abilities'].items():
         formatted_message += f"{ability}: {level}\n"
     formatted_message += f"Goods: {', '.join(user_data['goods'])}\n"
+    formatted_message += f"Equipments: {', '.join(user_data['equipment'])}\n"
     formatted_message += f"Credits: {user_data['credits']}\n\n"
     formatted_message += "Careers:\n"
     for i in range(1, 8):
@@ -1715,12 +1716,12 @@ def get_player_sheet(update: Update, context: CallbackContext):
             update.message.reply_text(format_player_sheet(user_data))
             return ConversationHandler.END
         except KeyError:
-            update.message.reply_text(f"You have no character named {charcter_name}!")
+            update.message.reply_text(f"Non esiste un personaggio di nome {charcter_name}!")
             return ConversationHandler.END
         
 # Unknown commands
 def unknown(update: Update, context: CallbackContext):
-    context.bot.send_message(chat_id=update.effective_chat.id, text='Unknown command, try /help')
+    context.bot.send_message(chat_id=update.effective_chat.id, text='Commando sconisciuto, prova /help')
 
 
 if __name__ == '__main__':
